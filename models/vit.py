@@ -223,9 +223,3 @@ class ViT(nn.Module):
         x = self.transformer(x) # [B, N+1, C]
 
         return x[:,1:,:]
-    
-if __name__ == '__main__':
-    load = True
-    vit = ViT(image_size=224, patch_size=16, dim=768, depth=12, heads=12, mlp_dim=3072, dim_head=64, qkv_bias=True, pretrain_path='vit_base_patch16_224.pth' if load else None)
-    for k,v in vit.state_dict().items():
-        print(k)
